@@ -9,13 +9,28 @@
             PrintArray<Int32>(nums);
 
             // Delete Element at index 3
-            deleteAtIndex<Int32>(nums, index_to_del: 3);
+            int index_del = FindElement<Int32>(nums, 7);
+            DeleteAtIndex<Int32>(nums, index_to_del: index_del);
             
             Console.WriteLine("After: ");
             PrintArray<Int32>(nums);    
         }
 
-        public static void deleteAtIndex<T>(T[] arr, UInt16 index_to_del)
+        public static int FindElement<T>(T[] arr, T element)
+        {
+            int index_del = -1;
+            for (int index = 0; index < arr.Length; index++)
+            {   
+                if (arr[index].Equals(element))
+                {
+                    index_del = index;
+                }
+            }
+
+            return index_del;
+        }
+
+        public static void DeleteAtIndex<T>(T[] arr, int index_to_del)
         {
             // Delete At That Element
             // By Move Every Element Next To it By 1
